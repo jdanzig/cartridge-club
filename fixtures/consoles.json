@@ -1,0 +1,167 @@
+[
+  {
+    "handle": "nes",
+    "name": "Nintendo Entertainment System",
+    "manufacturer": "Nintendo",
+    "release_year": 1985,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "nes_7pin",
+    "cartridge_format": "nes_72pin",
+    "av_output_types": ["composite", "rf"],
+    "generation": "third_gen"
+  },
+  {
+    "handle": "snes",
+    "name": "Super Nintendo Entertainment System",
+    "manufacturer": "Nintendo",
+    "release_year": 1990,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "snes_7pin",
+    "cartridge_format": "snes",
+    "av_output_types": ["composite", "s_video", "rgb", "rf"],
+    "generation": "fourth_gen"
+  },
+  {
+    "handle": "n64",
+    "name": "Nintendo 64",
+    "manufacturer": "Nintendo",
+    "release_year": 1996,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "n64_controller_port",
+    "cartridge_format": "n64",
+    "av_output_types": ["composite", "s_video", "rgb"],
+    "generation": "fifth_gen"
+  },
+  {
+    "handle": "gamecube",
+    "name": "Nintendo GameCube",
+    "manufacturer": "Nintendo",
+    "release_year": 2001,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "gamecube_controller_port",
+    "cartridge_format": "gamecube_disc",
+    "av_output_types": ["composite", "s_video", "component"],
+    "generation": "sixth_gen"
+  },
+  {
+    "handle": "wii",
+    "name": "Nintendo Wii",
+    "manufacturer": "Nintendo",
+    "release_year": 2006,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "gamecube_controller_port",
+    "cartridge_format": "wii_disc",
+    "av_output_types": ["composite", "component"],
+    "generation": "seventh_gen"
+  },
+  {
+    "handle": "gameboy",
+    "name": "Game Boy",
+    "manufacturer": "Nintendo",
+    "release_year": 1989,
+    "region_codes": ["worldwide"],
+    "controller_port_spec": "integrated",
+    "cartridge_format": "gameboy",
+    "av_output_types": ["dot_matrix"],
+    "generation": "handheld"
+  },
+  {
+    "handle": "gba",
+    "name": "Game Boy Advance",
+    "manufacturer": "Nintendo",
+    "release_year": 2001,
+    "region_codes": ["worldwide"],
+    "controller_port_spec": "integrated",
+    "cartridge_format": "gba",
+    "av_output_types": ["lcd"],
+    "generation": "handheld"
+  },
+  {
+    "handle": "genesis",
+    "name": "Sega Genesis",
+    "manufacturer": "Sega",
+    "release_year": 1989,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "sega_db9",
+    "cartridge_format": "genesis",
+    "av_output_types": ["composite", "rgb"],
+    "generation": "fourth_gen"
+  },
+  {
+    "handle": "saturn",
+    "name": "Sega Saturn",
+    "manufacturer": "Sega",
+    "release_year": 1994,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "saturn",
+    "cartridge_format": "saturn_disc",
+    "av_output_types": ["composite", "s_video", "rgb"],
+    "generation": "fifth_gen"
+  },
+  {
+    "handle": "dreamcast",
+    "name": "Sega Dreamcast",
+    "manufacturer": "Sega",
+    "release_year": 1998,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "dreamcast",
+    "cartridge_format": "gd_rom",
+    "av_output_types": ["composite", "s_video", "rgb", "vga"],
+    "generation": "sixth_gen"
+  },
+  {
+    "handle": "ps1",
+    "name": "Sony PlayStation",
+    "manufacturer": "Sony",
+    "release_year": 1994,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "ps_controller_port",
+    "cartridge_format": "cd_rom",
+    "av_output_types": ["composite", "s_video", "rgb"],
+    "generation": "fifth_gen"
+  },
+  {
+    "handle": "ps2",
+    "name": "Sony PlayStation 2",
+    "manufacturer": "Sony",
+    "release_year": 2000,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "ps_controller_port",
+    "cartridge_format": "ps2_disc",
+    "av_output_types": ["composite", "s_video", "component", "rgb"],
+    "generation": "sixth_gen"
+  },
+  {
+    "handle": "xbox",
+    "name": "Microsoft Xbox",
+    "manufacturer": "Microsoft",
+    "release_year": 2001,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "xbox_controller_port",
+    "cartridge_format": "xbox_disc",
+    "av_output_types": ["composite", "s_video", "component"],
+    "generation": "sixth_gen"
+  },
+  {
+    "handle": "tg16",
+    "name": "TurboGrafx-16",
+    "manufacturer": "NEC",
+    "release_year": 1989,
+    "region_codes": ["NTSC-U", "NTSC-J"],
+    "controller_port_spec": "turbografx",
+    "cartridge_format": "hu_card",
+    "av_output_types": ["composite", "rf"],
+    "generation": "fourth_gen"
+  },
+  {
+    "handle": "neo_geo",
+    "name": "Neo Geo AES",
+    "manufacturer": "SNK",
+    "release_year": 1990,
+    "region_codes": ["NTSC-U", "NTSC-J", "PAL"],
+    "controller_port_spec": "neo_geo_db15",
+    "cartridge_format": "neo_geo_aes",
+    "av_output_types": ["composite", "rgb"],
+    "generation": "fourth_gen"
+  }
+]

@@ -1,0 +1,31 @@
+query Input {
+  cart {
+    lines {
+      id
+      quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+          sku
+          product {
+            handle
+            requiresAccessory: metafield(namespace: "custom", key: "requires_accessory") { value }
+            outputConnector: metafield(namespace: "custom", key: "output_connector") { value }
+            accessoryKind:    metafield(namespace: "custom", key: "accessory_kind") { value }
+            compatibleConsoles: metafield(namespace: "custom", key: "compatible_consoles") {
+              references(first: 25) {
+                nodes {
+                  ... on Metaobject { handle }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  validationConfig: shop {
+    enabled: metafield(namespace: "cc_functions", key: "validation_enabled") { value }
+    blockOnMixedOutput: metafield(namespace: "cc_functions", key: "block_on_mixed_output") { value }
+  }
+}

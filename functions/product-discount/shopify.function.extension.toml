@@ -1,0 +1,15 @@
+name = "product-discount"
+type = "function"
+api_version = "2025-01"
+
+[build]
+command = "npm run build"
+path = "dist/function.js"
+
+[ui]
+enable_create = false
+
+[[targeting]]
+target = "cart.lines.discounts.generate.run"
+input_query = "input.graphql"
+export = "run"

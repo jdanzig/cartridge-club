@@ -1,0 +1,66 @@
+{%- comment -%}
+  "Complete Your Setup" — shows related accessories for the currently selected
+  console. Pulls from a per-console collection if available (e.g.
+  `nintendo-64-accessories`), otherwise from `recommendations.products`.
+{%- endcomment -%}
+
+{%- liquid
+  assign selected_console_handle = request.params.console | default: ''
+  if selected_console_handle == blank
+    assign selected_console_handle = settings.default_console | default: ''
+  endif
+
+  assign related = recommendations.products
+  if selected_console_handle != blank
+    assign collection_handle = selected_console_handle | append: '-accessories'
+    assign console_collection = collections[collection_handle]
+    if console_collection.products.size > 0
+      assign related = console_collection.products
+    endif
+  endif
+-%}
+
+<section class="cc-section cc-complete" aria-labelledby="cc-complete-heading">
+  <h2 id="cc-complete-heading" class="cc-complete__heading">
+    {{ section.settings.heading | default: 'Complete your setup' }}
+  </h2>
+
+  {%- if related == blank or related.size == 0 -%}
+    <p class="cc-complete__empty">No recommendations yet. Pick a console above to see compatible accessories.</p>
+  {%- else -%}
+    <ul class="cc-complete__list">
+      {%- for related_product in related limit: section.settings.limit -%}
+        {%- if related_product.handle == product.handle -%}{% continue %}{%- endif -%}
+        <li class="cc-complete__item">
+          <a href="{{ related_product.url }}" class="cc-complete__link">
+            {%- if related_product.featured_image -%}
+              {{ related_product.featured_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: related_product.title }}
+            {%- endif -%}
+            <span class="cc-complete__title">{{ related_product.title }}</span>
+            <span class="cc-complete__price">{{ related_product.price | money }}</span>
+          </a>
+          {%- render 'compatibility-badge',
+              product: related_product,
+              selected_console_handle: selected_console_handle,
+              size: 'sm' -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Complete Your Setup",
+  "tag": "section",
+  "class": "cc-section cc-section--complete",
+  "settings": [
+    { "type": "text",  "id": "heading", "label": "Heading", "default": "Complete your setup" },
+    { "type": "range", "id": "limit", "label": "Max items",
+      "min": 2, "max": 12, "step": 1, "default": 6 }
+  ],
+  "presets": [
+    { "name": "Complete Your Setup" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor":     { "type": "text",    "settings": { "text": "{{ product.vendor }}", "text_style": "uppercase" } },
+        "title":      { "type": "title",   "settings": {} },
+        "price":      { "type": "price",   "settings": {} },
+        "badge_row":  { "type": "@app" },
+        "warning":    { "type": "custom_liquid", "settings": {
+                           "custom_liquid": "{% render 'accessory-warning', product: product %}" } },
+        "variant":    { "type": "variant_picker", "settings": { "picker_type": "button" } },
+        "qty":        { "type": "quantity_selector", "settings": {} },
+        "buy":        { "type": "buy_buttons",      "settings": { "show_dynamic_checkout": true } },
+        "description":{ "type": "description",      "settings": {} }
+      },
+      "block_order": ["vendor","title","price","badge_row","warning","variant","qty","buy","description"],
+      "settings": { "enable_sticky_info": true }
+    },
+    "compat_warning": {
+      "type": "compatibility-warning",
+      "settings": { "heading": "Before you buy" }
+    },
+    "compat_matrix": {
+      "type": "compatibility-matrix",
+      "settings": { "heading": "Console compatibility" }
+    },
+    "complete_setup": {
+      "type": "complete-your-setup",
+      "settings": { "heading": "Complete your setup", "limit": 6 }
+    }
+  },
+  "order": ["main","compat_warning","compat_matrix","complete_setup"]
+}

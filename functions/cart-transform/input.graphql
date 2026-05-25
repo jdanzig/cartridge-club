@@ -1,0 +1,21 @@
+query Input {
+  cart {
+    lines {
+      id
+      quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+          product {
+            handle
+            bundleType:       metafield(namespace: "custom", key: "bundle_type")       { value }
+            bundleComponents: metafield(namespace: "custom", key: "bundle_components") { value }
+          }
+        }
+      }
+    }
+  }
+  bundleConfig: shop {
+    componentLookup: metafield(namespace: "cc_functions", key: "bundle_component_variant_map") { value }
+  }
+}

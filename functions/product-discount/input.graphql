@@ -1,0 +1,30 @@
+query Input {
+  cart {
+    lines {
+      id
+      quantity
+      cost { amountPerQuantity { amount currencyCode } }
+      merchandise {
+        ... on ProductVariant {
+          id
+          product {
+            handle
+            accessoryKind:      metafield(namespace: "custom", key: "accessory_kind") { value }
+            compatibleConsoles: metafield(namespace: "custom", key: "compatible_consoles") {
+              references(first: 25) {
+                nodes {
+                  ... on Metaobject { handle }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  discountConfig: shop {
+    enabled: metafield(namespace: "cc_functions", key: "starter_discount_enabled") { value }
+    percent: metafield(namespace: "cc_functions", key: "starter_discount_percent") { value }
+    requiredKinds: metafield(namespace: "cc_functions", key: "starter_discount_required_kinds") { value }
+  }
+}

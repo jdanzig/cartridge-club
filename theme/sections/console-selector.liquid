@@ -1,0 +1,34 @@
+{%- comment -%}
+  Sticky console selector. Persists the chosen console in a `console_id`
+  cookie and as a `?console=` URL param. Reads available consoles from the
+  `shop.metaobjects.console` collection.
+{%- endcomment -%}
+
+<div class="cc-console-selector" data-cc-console-selector>
+  <label for="cc-console-select" class="cc-console-selector__label">
+    {{ section.settings.label | default: 'Shopping for:' }}
+  </label>
+  <select id="cc-console-select" data-cc-console-select
+          aria-label="{{ section.settings.label | default: 'Console' }}">
+    <option value="">All consoles</option>
+    {%- for entry in shop.metaobjects.console.values -%}
+      <option value="{{ entry.handle }}">{{ entry.name.value }}</option>
+    {%- endfor -%}
+  </select>
+</div>
+
+<script src="{{ 'console-selector.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Console Selector",
+  "tag": "section",
+  "class": "cc-section cc-section--selector",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Shopping for:" }
+  ],
+  "presets": [
+    { "name": "Console Selector" }
+  ]
+}
+{% endschema %}

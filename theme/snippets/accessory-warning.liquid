@@ -1,0 +1,15 @@
+{%- comment -%}
+  Inline warning chip — renders a small yellow note when the product has
+  `custom.warning` set. Used in PLP cards and cart line items.
+
+  Inputs:
+    product: a Product drop
+{%- endcomment -%}
+
+{%- assign warning = product.metafields.custom.warning -%}
+{%- if warning != blank -%}
+  <p class="cc-warning" role="note">
+    <span class="cc-warning__icon" aria-hidden="true">!</span>
+    {{ warning }}
+  </p>
+{%- endif -%}

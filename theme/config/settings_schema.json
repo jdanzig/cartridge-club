@@ -1,0 +1,40 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Cartridge Club Overlay",
+    "theme_version": "0.1.0",
+    "theme_author": "Cartridge Club",
+    "theme_documentation_url": "https://example.com",
+    "theme_support_url": "https://example.com"
+  },
+  {
+    "name": "Cartridge Club — compatibility",
+    "settings": [
+      { "type": "header", "content": "Console default" },
+      {
+        "type": "text",
+        "id": "default_console",
+        "label": "Default console handle",
+        "info": "Used when no ?console= param or cookie is set. e.g. 'n64'.",
+        "default": ""
+      },
+      { "type": "header", "content": "Badge colors" },
+      { "type": "color", "id": "badge_works_bg",       "label": "Works background",       "default": "#d1fadf" },
+      { "type": "color", "id": "badge_works_fg",       "label": "Works text",             "default": "#054f31" },
+      { "type": "color", "id": "badge_caveats_bg",     "label": "Caveats background",     "default": "#fef0c7" },
+      { "type": "color", "id": "badge_caveats_fg",     "label": "Caveats text",           "default": "#7a4f01" },
+      { "type": "color", "id": "badge_adapter_bg",     "label": "Adapter background",     "default": "#d1e9ff" },
+      { "type": "color", "id": "badge_adapter_fg",     "label": "Adapter text",           "default": "#054b8b" },
+      { "type": "color", "id": "badge_incompat_bg",    "label": "Incompatible background","default": "#fee4e2" },
+      { "type": "color", "id": "badge_incompat_fg",    "label": "Incompatible text",      "default": "#7a271a" },
+      { "type": "header", "content": "Behavior" },
+      {
+        "type": "checkbox",
+        "id": "show_incompatible_products",
+        "label": "Show incompatible products in collections",
+        "info": "Off: hides products that don't list the selected console as compatible.",
+        "default": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+{%- comment -%}
+  Renders the `custom.warning` metafield prominently above the buy box.
+{%- endcomment -%}
+
+{%- assign warning = product.metafields.custom.warning -%}
+{%- if warning != blank -%}
+  <aside class="cc-section cc-warning-banner" role="note">
+    <h3 class="cc-warning-banner__heading">
+      {{ section.settings.heading | default: 'Heads-up before you buy' }}
+    </h3>
+    <p class="cc-warning-banner__body">{{ warning }}</p>
+  </aside>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Compatibility Warning",
+  "tag": "section",
+  "class": "cc-section cc-section--warning",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Heads-up before you buy" }
+  ],
+  "presets": [
+    { "name": "Compatibility Warning" }
+  ]
+}
+{% endschema %}

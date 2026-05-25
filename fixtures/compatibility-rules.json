@@ -1,0 +1,98 @@
+[
+  {
+    "handle": "ps2-controller-on-ps1",
+    "source_console": "ps2",
+    "target_console": "ps1",
+    "accessory_kind": "controller",
+    "status": "works_with_caveats",
+    "note": "DualShock 2 works on PS1, but pressure-sensitive face buttons behave as digital. A few games lose analog support entirely."
+  },
+  {
+    "handle": "gamecube-controller-on-wii",
+    "source_console": "gamecube",
+    "target_console": "wii",
+    "accessory_kind": "controller",
+    "status": "works",
+    "note": "Original GameCube controllers work in the Wii's four GC ports for GameCube games and select Wii titles (Smash Bros Brawl)."
+  },
+  {
+    "handle": "gamecube-memory-card-on-wii",
+    "source_console": "gamecube",
+    "target_console": "wii",
+    "accessory_kind": "storage",
+    "status": "requires_adapter",
+    "note": "GameCube memory cards work in the Wii's GC memory card slot, but transferring saves to/from the Wii's internal memory requires the official save-transfer tool."
+  },
+  {
+    "handle": "snes-controller-on-snes-mini",
+    "source_console": "snes",
+    "target_console": "snes",
+    "accessory_kind": "controller",
+    "status": "works",
+    "note": "Original SNES controllers work on the original hardware. For SNES Classic / Mini hardware, use a dedicated adapter."
+  },
+  {
+    "handle": "s-video-pal-n64",
+    "source_console": "n64",
+    "target_console": "n64",
+    "accessory_kind": "cable",
+    "status": "incompatible",
+    "note": "PAL N64 consoles do not output S-Video on the standard multi-out. Use composite or an internal RGB mod."
+  },
+  {
+    "handle": "scart-on-ntsc",
+    "source_console": "snes",
+    "target_console": "snes",
+    "accessory_kind": "adapter",
+    "status": "incompatible",
+    "note": "PAL SCART cables do not pass video correctly on NTSC consoles without a sync converter."
+  },
+  {
+    "handle": "wavebird-extension",
+    "source_console": "gamecube",
+    "target_console": "gamecube",
+    "accessory_kind": "cable",
+    "status": "incompatible",
+    "note": "WaveBird wireless receivers cannot be daisy-chained behind an extension cable — interference and power issues."
+  },
+  {
+    "handle": "component-gamecube-late-models",
+    "source_console": "gamecube",
+    "target_console": "gamecube",
+    "accessory_kind": "cable",
+    "status": "requires_adapter",
+    "note": "Component cables require a GameCube with the digital A/V port (early launch units only). Later DOL-101 boards omitted the port entirely."
+  },
+  {
+    "handle": "saturn-controller-on-genesis",
+    "source_console": "saturn",
+    "target_console": "genesis",
+    "accessory_kind": "controller",
+    "status": "works_with_caveats",
+    "note": "Saturn controllers work on a Genesis using the same DB-9 pinout, but the START button maps to MODE on some games."
+  },
+  {
+    "handle": "dreamcast-vga-non-arcade",
+    "source_console": "dreamcast",
+    "target_console": "dreamcast",
+    "accessory_kind": "av",
+    "status": "works_with_caveats",
+    "note": "Dreamcast VGA adapters work in ~80% of titles. The remaining games (Resident Evil Code: Veronica, House of the Dead 2) only output to TV-mode signals."
+  },
+  {
+    "handle": "bluetooth-receiver-on-snes",
+    "source_console": "snes",
+    "target_console": "snes",
+    "accessory_kind": "adapter",
+    "status": "works",
+    "note": "8BitDo SNES receiver works with most modern Bluetooth controllers. Latency is acceptable for most genres; not recommended for pixel-precise speedruns."
+  },
+  {
+    "handle": "ps2-component-on-ps1-games",
+    "source_console": "ps2",
+    "target_console": "ps2",
+    "accessory_kind": "cable",
+    "status": "works_with_caveats",
+    "note": "Component cables work with PS2 titles set to progressive scan. PS1 games via backwards compatibility only output interlaced over component."
+  }
+]

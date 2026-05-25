@@ -1,0 +1,58 @@
+{%- comment -%}
+  Compatibility badge — renders a colored chip describing whether the given
+  `product` is compatible with `selected_console_handle`.
+
+  Status precedence:
+    incompatible       (red X)        — product's compatible_consoles list does not include selected
+    requires_adapter   (blue adapter) — product.metafields.custom.requires_accessory non-empty
+    works_with_caveats (yellow !)     — product has a custom.warning
+    works              (green ✓)      — default, compatible and no caveats
+    unknown            (gray ?)       — no compatibility data on product
+
+  Inputs:
+    product: a Product drop
+    selected_console_handle: string (e.g. "n64") — may be blank
+    size: "sm" | "md" | "lg" (default "md")
+{%- endcomment -%}
+
+{%- liquid
+  assign size = size | default: 'md'
+  assign status = 'unknown'
+
+  assign compat = product.metafields.custom.compatible_consoles.value
+  assign warning = product.metafields.custom.warning
+  assign requires = product.metafields.custom.requires_accessory.value
+
+  if selected_console_handle != blank and compat != blank
+    assign found = false
+    for c in compat
+      if c.handle == selected_console_handle
+        assign found = true
+        break
+      endif
+    endfor
+    if found
+      assign status = 'works'
+      if warning != blank
+        assign status = 'works_with_caveats'
+      endif
+      if requires != blank and requires.size > 0
+        assign status = 'requires_adapter'
+      endif
+    else
+      assign status = 'incompatible'
+    endif
+  endif
+-%}
+
+<span class="cc-badge cc-badge--{{ status }} cc-badge--{{ size }}"
+      data-cc-status="{{ status }}"
+      title="{% case status %}{% when 'works' %}Compatible{% when 'works_with_caveats' %}Compatible with caveats{% when 'requires_adapter' %}Requires adapter{% when 'incompatible' %}Not compatible{% else %}Compatibility unknown{% endcase %}">
+  {%- case status -%}
+    {%- when 'works' -%}<span class="cc-badge__icon" aria-hidden="true">✓</span> Compatible
+    {%- when 'works_with_caveats' -%}<span class="cc-badge__icon" aria-hidden="true">!</span> Works with caveats
+    {%- when 'requires_adapter' -%}<span class="cc-badge__icon" aria-hidden="true">⇄</span> Needs adapter
+    {%- when 'incompatible' -%}<span class="cc-badge__icon" aria-hidden="true">✕</span> Not compatible
+    {%- else -%}<span class="cc-badge__icon" aria-hidden="true">?</span> Unknown
+  {%- endcase -%}
+</span>

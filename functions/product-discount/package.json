@@ -1,0 +1,13 @@
+{
+  "name": "product-discount",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/run.js --bundle --target=esnext --format=esm --outfile=dist/function.js",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}

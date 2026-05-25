@@ -1,0 +1,119 @@
+/* Cartridge Club — compatibility theme styles.
+   Scope everything under .cc- so we don't collide with Dawn's classes. */
+
+.cc-section {
+  padding: 1.5rem 1rem;
+  margin: 1rem auto;
+  max-width: 72rem;
+}
+
+/* ── Console selector ─────────────────────────────────────────────── */
+
+.cc-console-selector {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: var(--cc-selector-bg, #111);
+  color: var(--cc-selector-fg, #fff);
+  font-family: var(--font-body-family, system-ui, sans-serif);
+}
+.cc-console-selector__label { font-weight: 600; }
+.cc-console-selector select {
+  padding: 0.25rem 0.5rem;
+  font: inherit;
+  background: #fff;
+  color: #111;
+  border: 1px solid #444;
+  border-radius: 0.25rem;
+}
+
+/* ── Badges ──────────────────────────────────────────────────────── */
+
+.cc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  border: 1px solid transparent;
+}
+.cc-badge__icon { font-weight: 700; }
+
+.cc-badge--sm { font-size: 0.75rem; padding: 0.05rem 0.4rem; }
+.cc-badge--lg { font-size: 1rem;   padding: 0.25rem 0.75rem; }
+
+.cc-badge--works              { background: #d1fadf; color: #054f31; border-color: #6cd09a; }
+.cc-badge--works_with_caveats { background: #fef0c7; color: #7a4f01; border-color: #f5cf60; }
+.cc-badge--requires_adapter   { background: #d1e9ff; color: #054b8b; border-color: #74b3f0; }
+.cc-badge--incompatible       { background: #fee4e2; color: #7a271a; border-color: #f7a7a0; }
+.cc-badge--unknown            { background: #f1f1f1; color: #444;   border-color: #ccc;    }
+
+/* ── Warnings ────────────────────────────────────────────────────── */
+
+.cc-warning {
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #fff8e1;
+  border-left: 3px solid #f0b000;
+  color: #5a3d00;
+  font-size: 0.875rem;
+}
+.cc-warning__icon {
+  font-weight: 700;
+  color: #b27600;
+}
+
+.cc-warning-banner {
+  background: #fff8e1;
+  border: 1px solid #f0b000;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+}
+.cc-warning-banner__heading { margin: 0 0 0.5rem; font-size: 1rem; }
+.cc-warning-banner__body    { margin: 0; color: #5a3d00; }
+
+/* ── Compatibility matrix ────────────────────────────────────────── */
+
+.cc-compat-matrix__heading { margin-bottom: 1rem; }
+.cc-compat-matrix__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.5rem;
+}
+.cc-compat-matrix__cell {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+.cc-compat-matrix__cell--works              { background: #f0fdf4; border-color: #86efac; }
+.cc-compat-matrix__cell--works_with_caveats { background: #fefce8; border-color: #facc15; }
+.cc-compat-matrix__cell--requires_adapter   { background: #eff6ff; border-color: #93c5fd; }
+.cc-compat-matrix__cell--incompatible       { background: #fef2f2; border-color: #fca5a5; }
+.cc-compat-matrix__console { font-weight: 600; margin-bottom: 0.25rem; }
+.cc-compat-matrix__status  { font-size: 0.875rem; }
+.cc-compat-matrix__note    { margin-top: 0.5rem; font-size: 0.75rem; color: #555; }
+
+/* ── Complete your setup ─────────────────────────────────────────── */
+
+.cc-complete__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 1rem;
+}
+.cc-complete__item { display: flex; flex-direction: column; gap: 0.25rem; }
+.cc-complete__link { display: flex; flex-direction: column; gap: 0.25rem; text-decoration: none; color: inherit; }
+.cc-complete__title { font-weight: 600; font-size: 0.875rem; }
+.cc-complete__price { color: #555; font-size: 0.8125rem; }
+.cc-complete__empty { color: #555; font-style: italic; }

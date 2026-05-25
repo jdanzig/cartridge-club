@@ -1,0 +1,80 @@
+{%- comment -%}
+  Compatibility matrix — renders all consoles × this product as a status grid.
+  Sources:
+    - product.metafields.custom.compatible_consoles (list of console metaobjects)
+    - shop.metaobjects.compatibility_rule (rule overrides, optional)
+{%- endcomment -%}
+
+{%- liquid
+  assign product = product
+  assign compatible = product.metafields.custom.compatible_consoles.value
+  assign compat_handles = ''
+  if compatible != blank
+    for c in compatible
+      assign compat_handles = compat_handles | append: c.handle | append: ','
+    endfor
+  endif
+-%}
+
+<section class="cc-section cc-compat-matrix" aria-labelledby="cc-compat-heading">
+  <h2 id="cc-compat-heading" class="cc-compat-matrix__heading">
+    {{ section.settings.heading | default: 'Console compatibility' }}
+  </h2>
+
+  <div class="cc-compat-matrix__grid">
+    {%- for entry in shop.metaobjects.console.values -%}
+      {%- liquid
+        assign status = 'incompatible'
+        assign needle = entry.handle | append: ','
+        if compat_handles contains needle
+          assign status = 'works'
+          if product.metafields.custom.warning != blank
+            assign status = 'works_with_caveats'
+          endif
+        endif
+
+        comment
+          Per-product, per-console rule overrides — look for a matching rule
+          whose target_console.handle equals this console.
+        endcomment
+        for rule in shop.metaobjects.compatibility_rule.values
+          if rule.target_console.value.handle == entry.handle
+            if rule.accessory_kind.value == product.metafields.custom.accessory_kind.value
+              assign status = rule.status.value
+              assign rule_note = rule.note.value
+            endif
+          endif
+        endfor
+      -%}
+      <div class="cc-compat-matrix__cell cc-compat-matrix__cell--{{ status }}">
+        <div class="cc-compat-matrix__console">{{ entry.name.value }}</div>
+        <div class="cc-compat-matrix__status">
+          {%- case status -%}
+            {%- when 'works' -%}✓ Works
+            {%- when 'works_with_caveats' -%}! Caveats
+            {%- when 'requires_adapter' -%}⇄ Adapter
+            {%- when 'incompatible' -%}✕ No
+            {%- else -%}? Unknown
+          {%- endcase -%}
+        </div>
+        {%- if rule_note != blank -%}
+          <div class="cc-compat-matrix__note">{{ rule_note }}</div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Compatibility Matrix",
+  "tag": "section",
+  "class": "cc-section cc-section--matrix",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Console compatibility" }
+  ],
+  "presets": [
+    { "name": "Compatibility Matrix" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,56 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+shopify.app.*.toml
+!shopify.app.toml
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+out/
+.turbo/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Shopify
+.shopify/
+.shopify-cli.yml
+extensions/*/dist/
+
+# Rust (for Functions if used)
+target/
+Cargo.lock
+
+# Databases / local state
+*.sqlite
+*.sqlite3
+*.db
+webhook-service/data/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Theme
+theme/.shopifyignore.local
