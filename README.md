@@ -1,5 +1,7 @@
 # Cartridge Club Supply — Shopify Platform Sandbox
 
+[![test](https://github.com/jdanzig/cartridge-club/actions/workflows/test.yml/badge.svg)](https://github.com/jdanzig/cartridge-club/actions/workflows/test.yml)
+
 A hands-on Shopify Plus-style technical sandbox built around a fictional
 retro gaming accessories store, **Cartridge Club Supply**. The project
 exists to demonstrate platform mechanics across every major Shopify surface
